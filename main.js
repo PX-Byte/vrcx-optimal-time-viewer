@@ -53,8 +53,8 @@ function readData(data) {
   times.shift(); // Remove first element (csv header)
 
   // Get days
-  let days = parsedData[0];
-  days.shift();
+  let days = parsedData[0].map((v, i) => getColum(parsedData, i));
+  days.shift(); // Remove bucket day
 
   /** Chart builder */
 
@@ -65,4 +65,11 @@ function readData(data) {
 
   debugger;
   
+/**
+ * 
+ * @param {string[[]]} datasets 
+ * @param {number} numCol 
+ */
+function getColum(dataset, numCol) {
+  return dataset.map((row, index) => row[numCol]);
 }
