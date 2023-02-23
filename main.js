@@ -42,7 +42,9 @@ function readData(data) {
   }
 
   // separate by lines and columns by \t --> https://github.com/zkxs/vrcx-optimal-time/blob/5033331996224321dbf231791e055aaa5b06f20d/src/main.rs#L312
-  let parsedData = data.split("\n").map((ln) => ln.split("\t"))
+  let parsedData = data.split("\n") // parse rows
+  if (parsedData.at(-1) == "") parsedData.pop(); // This remove empty end of line
+  parsedData = parsedData.map((ln) => ln.split("\t")) // parse columns
 
   /** DATA FORMATING FOR HEADERS */
 
