@@ -35,7 +35,7 @@ function readData(data) {
   console.log(data)
 
   // replace windows crlf to unix lf
-  data = data.replace("\r\n", "\n");
+  data = data.split("\r").join("");
 
   if (data.slice(0, 6) != "bucket") {
     alert("Invalid input file");
