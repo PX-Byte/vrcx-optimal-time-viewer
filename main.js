@@ -1,4 +1,5 @@
 import './style.css'
+import Chart from 'chart.js/auto'
 
 let fileinput = document.getElementById("dropzone-file");
 
@@ -8,6 +9,10 @@ fileinput.ondrop = (e) => {
   e.preventDefault();
   inputFileRecived(e.dataTransfer.files);
 }
+document.getElementById("file-input").addEventListener('change', (e) => {
+  e.preventDefault();
+  inputFileRecived(e.target.files);
+});
 
 function inputFileRecived(files) {
 
@@ -17,7 +22,7 @@ function inputFileRecived(files) {
   }
 
   fileinput.className = "hidden";
-  
+
   let file = files[0];
   let reader = new FileReader();
 
@@ -58,13 +63,33 @@ function readData(data) {
 
   /** Chart builder */
 
-  
+  let datasets = days.map((v, i) => {
+    return {
+      type: 'line',
+      label: v[0],
+      data: v.filter((_, i) => i != 0),
+      tension: 0.1,
+      pointRadius: 0
+    }
+  })
+  datasets.shift(); // remove csv header
 
-  
-  
 
-  debugger;
-  
+  const mixedChart = new Chart(document.getElementById("myChart"), {
+    data: {
+      datasets: datasets,
+      labels: times
+    },
+    options: {
+      plugins: {
+        tooltip: {
+          enabled: false
+        }
+      }
+    }
+  });
+}
+
 /**
  * 
  * @param {string[[]]} datasets 
