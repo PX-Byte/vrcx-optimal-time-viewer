@@ -72,8 +72,6 @@ function readData(data) {
       pointRadius: 0
     }
   })
-  datasets.shift(); // remove csv header
-
 
   const mixedChart = new Chart(document.getElementById("myChart"), {
     data: {
