@@ -88,7 +88,7 @@ function readData(data) {
           enabled: false
         },
         subtitle: {
-          text: "Note: click week name to enable or disable it",
+          text: "Click week name to enable or disable it",
           align: "center",
           display: true,
           position: 'top'
