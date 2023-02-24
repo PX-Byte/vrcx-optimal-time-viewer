@@ -79,9 +79,19 @@ function readData(data) {
       labels: times
     },
     options: {
+      responsive: true,
+      interaction: {
+        intersect: false
+      },
       plugins: {
         tooltip: {
           enabled: false
+        },
+        subtitle: {
+          text: "Note: click week name to enable or disable it",
+          align: "center",
+          display: true,
+          position: 'top'
         }
       }
     }
