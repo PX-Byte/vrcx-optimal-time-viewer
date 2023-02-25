@@ -24,11 +24,14 @@ function inputFileRecived(files) {
   fileinput.className = "hidden";
 
   let file = files[0];
+
+  if (file.type != "text/csv") {
+    alert("Sorry but file shound be csv format (separated by tabs)")
+    return;
+  }
   let reader = new FileReader();
 
-  reader.onload = (evt) => {
-    readData(evt.target.result);
-  }
+  reader.onload = (evt) => readData(evt.target.result);
   reader.readAsText(file);
 }
 
