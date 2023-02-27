@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html,
+body {
+    @apply bg-gray-900;
+}
+
+a {
+    @apply text-blue-500 underline;
+}
+
+main {
+    @apply flex justify-center mx-10 text-center block;
+}
+
+.container {
+    @apply items-center w-full mx-auto mt-3;
+}
+
+.title {
+    @apply text-2xl font-semibold text-white tracking-tighter lg:text-3xl;
+}
+
+.description {
+    @apply mt-6 text-base leading-relaxed text-center text-gray-400 mb-6;
+}
+
+.chart-container {
+    @apply flex items-center justify-center w-full;
+}
+
+.dropzone-label {
+    @apply flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500;
+}
+
+.chart-description {
+    @apply text-sm text-gray-400;
+}
+
+.dropzone-icon {
+    @apply flex flex-col items-center justify-center pt-5 pb-6;
+}
+
+.dropzone-svg {
+    @apply w-10 h-10 mb-3 text-gray-400;
+}
